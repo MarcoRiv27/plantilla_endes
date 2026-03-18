@@ -20,6 +20,9 @@ class PlantillaTest {
 
     /**
      * Prueba que verifica que no se puedan contratar empleados con el mismo DNI.
+     * @test ContratarEmpleado_Duplicado() Verifica que se lance una excepción al intentar contratar un empleado con un DNI ya existente en la plantilla.
+     * @throws IllegalArgumentException Si se intenta contratar un empleado con un DNI duplicado.
+     * 
      */
 
     @Test
@@ -37,7 +40,9 @@ class PlantillaTest {
         // Verificar el mensaje de la excepción
         assertEquals("El empleado con DNI 11111111H ya está contratado", ex.getMessage());
     }
-    
+    /**
+     * @test ContratarEmpleado_Exitoso() Verifica que se pueda contratar un empleado correctamente y que se refleje en la plantilla.
+     */
     @Test
     void textContrartarEmpleado() {
 		Empleado tecnico1 = new Tecnico("11111111H", "Alejandro", "Fernández", 1000.5, 1);
@@ -46,6 +51,10 @@ class PlantillaTest {
 		int resultado = plantilla.getEmpleadosPorNombre("Alejandro").size();
 		assertEquals(resultadoesperado, resultado);
     }
+    
+    /**
+     *@test GetEmpleadosPorNombre() Verifica que el método getEmpleadosPorNombre() devuelva la lista correcta de empleados que coincidan con el filtro de nombre o apellido.
+     */
     @Test
     void textGetEmpleadosPorNombre() {
     	Empleado tecnico1 = new Tecnico("11111111H", "Alejandro", "Fernández", 1000.5, 1);

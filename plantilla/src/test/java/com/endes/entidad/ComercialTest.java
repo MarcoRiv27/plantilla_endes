@@ -14,7 +14,7 @@ class ComercialTest {
 	}
 	
 	/**
-	 * Prueba que verifica que el método getVentas() devuelve el valor correcto de ventas.
+	 * @param ventas Obtener las ventas.
 	 */
 	@Test
 	void testGetVentas() {
@@ -23,10 +23,9 @@ class ComercialTest {
         assertEquals(resultadoEsperado, resultadoActual);
 	}
 	
+	
 	/**
-	 * Prueba que verifica que el método setVentas() actualiza correctamente el
-	 * valor de ventas. Se prueba con un valor positivo y se verifica que se
-	 * actualice correctamente.
+	 * @param ventas Valor de ventas a establecer en el comercial.
 	 */
 	@Test
 	void testSetVentas(double ventas) {
@@ -38,9 +37,8 @@ class ComercialTest {
 	}
 	
 	/**
-	 * Prueba que verifica que el método setVentas() lanza una excepción
-	 * IllegalArgumentException cuando se intenta establecer un valor negativo para
-	 * las ventas. Se verifica que el mensaje de la excepción sea el esperado.
+	 * @param ventas Valor de ventas negativo a establecer en el comercial.
+	 * @throws IllegalArgumentException Si se intenta establecer un valor de ventas negativo.
 	 */
 	@Test
 	void testVentasNegativo() {
@@ -51,9 +49,7 @@ class ComercialTest {
 	}
 	
 	/**
-	 * Prueba que verifica que el método calcularExtra() devuelve el valor correcto
-	 * del extra basado en las ventas. Se calcula el extra como el 10% de las ventas
-	 * y se verifica que el resultado sea el esperado.
+	 * Prueba que verifica que el método calcularExtra() devuelve el extra correcto
 	 */
 	@Test
 	void textCalcularExtra() {
@@ -63,10 +59,7 @@ class ComercialTest {
 	}
 	
 	/**
-	 * Prueba que verifica que el método getSueldo() devuelve el sueldo total
-	 * correcto para el comercial. El sueldo total se calcula como el sueldo base
-	 * más el extra basado en las ventas. Se verifica que el resultado sea el
-	 * esperado.
+	 * @param sueldo Obtener el sueldo total del comercial, incluyendo el bono por ventas.
 	 */
 	@Test
 	void testGetSueldo() {
