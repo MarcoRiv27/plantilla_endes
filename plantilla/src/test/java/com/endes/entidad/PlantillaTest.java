@@ -21,13 +21,13 @@ class PlantillaTest {
     /**
      * Prueba que verifica que no se puedan contratar empleados con el mismo DNI.
      */
-    @Disabled
+
     @Test
-    @DisplayName("No permite contratar empleados con el mismo DNI")
+    //("No permite contratar empleados con el mismo DNI")
     void testContratarEmpleado_Duplicado() {
         Empleado tecnico1 = new Tecnico("11111111H", "Alejandro", "Fernández", 1000.0, 1);
         Empleado tecnico2 = new Tecnico("11111111H", "Carlos", "Pérez", 1200.0, 2); // Mismo DNI que el primero
-
+        
         // Se permite el primer contrato
         assertDoesNotThrow(() -> plantilla.contratarEmpleado(tecnico1));
 
@@ -37,4 +37,7 @@ class PlantillaTest {
         // Verificar el mensaje de la excepción
         assertEquals("El empleado con DNI 11111111H ya está contratado", ex.getMessage());
     }
+    
+   
+    
 }
