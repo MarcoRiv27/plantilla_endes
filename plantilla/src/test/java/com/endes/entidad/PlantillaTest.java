@@ -13,7 +13,7 @@ class PlantillaTest {
     private Plantilla plantilla;
 
     @BeforeEach
-    @DisplayName("Inicialización de la plantilla de empleados")
+    //@DisplayName("Inicialización de la plantilla de empleados")
     void setUp() {
         plantilla = new Plantilla();
     }
@@ -38,6 +38,20 @@ class PlantillaTest {
         assertEquals("El empleado con DNI 11111111H ya está contratado", ex.getMessage());
     }
     
-   
-    
+    @Test
+    void textContrartarEmpleado() {
+		Empleado tecnico1 = new Tecnico("11111111H", "Alejandro", "Fernández", 1000.5, 1);
+		plantilla.contratarEmpleado(tecnico1);
+		int resultadoesperado = 1;
+		int resultado = plantilla.getEmpleadosPorNombre("Alejandro").size();
+		assertEquals(resultadoesperado, resultado);
+    }
+    @Test
+    void textGetEmpleadosPorNombre() {
+    	Empleado tecnico1 = new Tecnico("11111111H", "Alejandro", "Fernández", 1000.5, 1);
+    	plantilla.contratarEmpleado(tecnico1);
+    	String resultadoesperado = "Alejandro";
+    	String resultado = plantilla.getEmpleadosPorNombre("Alejandro").get(0).getNombre();
+    	assertEquals(resultadoesperado, resultado);
+    }
 }
